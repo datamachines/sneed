@@ -8,7 +8,7 @@ def printFunction(channel):
     print("Button 1 pressed!")
 
 print("Note how the bouncetime affects the button press")
-GPIO.add_event_detect(23, GPIO.RISING, callback=printFunction, bouncetime=300)
+GPIO.add_event_detect(23, GPIO.RISING, callback=printFunction, bouncetime=3000)
 
 while True:
     GPIO.wait_for_edge(24, GPIO.FALLING)
