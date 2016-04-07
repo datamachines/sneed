@@ -11,4 +11,4 @@ def doorClose(channel):
 
 print("Note how the bouncetime affects the button press")
 GPIO.add_event_detect(23, GPIO.RISING, callback=doorOpen, bouncetime=1000)
-GPIO.add_event_detect(23, GPIO.FALLING, callback=doorClosed, bouncetime=1000)
+GPIO.add_event_detect(23, GPIO.FALLING, callback=doorClose, bouncetime=1000)
