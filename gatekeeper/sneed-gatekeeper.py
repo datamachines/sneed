@@ -3,7 +3,7 @@ import yaml
 import requests
 import json
 import RPi.GPIO as GPIO
-import from datetime import datetime
+from datetime import datetime
 
 configfile = "../../sneedconfig.yaml"
 conf = yaml.safe_load(open(configfile))
