@@ -10,3 +10,6 @@ def doorOpen(channel):
 
 print("Note how the bouncetime affects the button press")
 GPIO.add_event_detect(23, GPIO.RISING, callback=doorOpen, bouncetime=1000)
+
+while True:
+    pass
