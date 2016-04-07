@@ -5,10 +5,8 @@ GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
 def doorOpen(channel):
     print("Door Opened!")
-
-def doorClose(channel):
+    GPIO.wait_for_edge(23, GPIO.FALLING)
     print("Door Closed!")
 
 print("Note how the bouncetime affects the button press")
 GPIO.add_event_detect(23, GPIO.RISING, callback=doorOpen, bouncetime=1000)
-GPIO.add_event_detect(23, GPIO.FALLING, callback=doorClose, bouncetime=1000)
