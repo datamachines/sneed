@@ -1,0 +1,43 @@
+{"racks":[
+    {
+      "name": "Rack 101",
+      "pin": 7
+    },{
+      "name": "Rack 102",
+      "pin": 8
+    },{
+      "name": "Rack 103",
+      "pin": 25
+    },{
+      "name": "Rack 104",
+      "pin": 24
+    },{
+      "name": "Rack 105",
+      "pin": 23
+    },{
+      "name": "Rack 106",
+      "pin": 11
+    },{
+      "name": "Rack 107",
+      "pin": 9
+    }
+  ],
+"motion sensors":[
+  {
+    "name": "Front of Cage",
+    "pin": 10
+  },{
+    "name": "Test Motion Sensor",
+    "pin": 22
+  }
+],
+"doors":[
+  {
+    "name": "Cage Door",
+    "pin": 21
+  },{
+    "name": "Test Door",
+    "pin": 18
+  }
+]
+}
