@@ -12,7 +12,8 @@ GPIO.setmode(GPIO.BCM)
 
 configfile = sys.argv[1]
 conf = yaml.safe_load(open(configfile))
-
+motion_interval = 60 * 30 # (only trigger the motion detector every 30 min)
+motion_last_seen = time.time()
 print conf
 
 payload = {
@@ -38,14 +39,16 @@ def slack(message):
 
 def motion_sensed(channel):
     print "motion!"
-    for ms in sensor_map["motion sensors"]:
-        pin = int(ms['pin'])
-        if pin == channel:
-            name = ms['name']
-    message = "Motion sensor " + name + " triggered."
-    print message
-    slack(message)
-    time.sleep(60*15) # sleep for 15 min
+    motion_time = time.time()
+    motion_delta = motion_time - motion_last_seen
+    if motion_delta.total_seconds() > motion_interval:
+        for ms in sensor_map["motion sensors"]:
+            pin = int(ms['pin'])
+            if pin == channel:
+                name = ms['name']
+        message = "Motion sensor " + name + " triggered."
+        print message
+        slack(message)
 
 def door_change(channel):
     print "door change"
