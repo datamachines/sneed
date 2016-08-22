@@ -3,6 +3,7 @@ import RPi.GPIO as GPIO
 import sys
 import json
 import yaml
+import time
 import requests
 from datetime import datetime
 #import time
@@ -44,6 +45,7 @@ def motion_sensed(channel):
     message = "Motion sensor " + name + " triggered."
     print message
     slack(message)
+    time.sleep(60*15) # sleep for 15 min
 
 def door_change(channel):
     print "door change"
