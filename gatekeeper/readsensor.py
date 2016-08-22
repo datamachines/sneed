@@ -43,6 +43,7 @@ def motion_sensed(channel):
     motion_delta = int(motion_time - motion_last_seen)
     print "Delta =", motion_delta
     if motion_delta > motion_interval:
+        motion_last_seen = time.time()
         for ms in sensor_map["motion sensors"]:
             pin = int(ms['pin'])
             if pin == channel:
