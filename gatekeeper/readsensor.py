@@ -40,8 +40,9 @@ def slack(message):
 def motion_sensed(channel):
     print "motion!"
     motion_time = time.time()
-    motion_delta = motion_time - motion_last_seen
-    if motion_delta.total_seconds() > motion_interval:
+    motion_delta = int(motion_time - motion_last_seen)
+    print "Delta =", motion_delta
+    if motion_delta > motion_interval:
         for ms in sensor_map["motion sensors"]:
             pin = int(ms['pin'])
             if pin == channel:
