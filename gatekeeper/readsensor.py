@@ -40,6 +40,7 @@ def slack(message):
 def motion_sensed(channel):
     print "motion!"
     motion_time = time.time()
+    global motion_last_seen
     motion_delta = int(motion_time - motion_last_seen)
     print "Delta =", motion_delta
     if motion_delta > motion_interval:
